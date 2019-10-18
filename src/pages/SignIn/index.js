@@ -56,4 +56,4 @@ class SignIn extends Component {
         );
     }
 }
-export default withRouter(SignIn);
+export default withRouter(SignIn)
