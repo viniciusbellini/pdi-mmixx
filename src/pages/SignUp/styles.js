@@ -27,7 +27,6 @@ export const Form = styled.form`
         text-align: center;
     }
     input{
-        flex: 1;
         height: 46px;
         margin-bottom: 10px;
         padding: 0 20px;

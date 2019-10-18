@@ -8,6 +8,7 @@ import { Form, Container } from "./styles";
 
 class SignUp extends Component {
     state = {
+        name: "",
         email: "",
         password: "",
         error: ""
@@ -15,13 +16,13 @@ class SignUp extends Component {
 
     handleSignUp = async e => {
         e.preventDefault();
-        const { email, password } = this.state;
+        const {name, email, password } = this.state;
         
-        if(!email || !password) {
+        if(!name || !email || !password) {
             this.setState({ error: "Necessário preencher todos os dados para cadastro"})
         } else {
             try {
-                await api.post("/users", {email, password});
+                await api.post("/users", {name, email, password});
                 this.props.history.push("/");
             } catch (err) {
                 console.log(err);
@@ -36,6 +37,11 @@ class SignUp extends Component {
                 <Form onSubmit={this.handleSignUp}>
                     <img src={Logo} alt="Pdi logo" />
                     {this.state.error && <p>{this.state.error}</p>}
+                    <input 
+                        type="name"
+                        placeholder="Nome completo"
+                        onChange={e => this.setState({name: e.target.value})}
+                    />
                     <input 
                         type="email"
                         placeholder="Endereço de e-mail"
