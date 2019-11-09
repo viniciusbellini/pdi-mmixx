@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import UserDataService from '../service/UserDataService';
+import UserDataService from '../services/api';
 
 class ListUsersComponent extends Component {
 
